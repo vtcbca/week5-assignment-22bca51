@@ -1,0 +1,93 @@
+import csv
+
+with open("c:\\sqlite3\\student_csv.csv","w",newline="")as stud:
+    write=csv.writer(stud)
+    #5 record's insert directly in csv file
+    header=['SId','SName','City','Contact']
+    write.writerow(header)
+    rows=[
+          [1,'Nikunj','Bardoli',9086543569],
+          [2,'Jay','Surat',9976645670],
+          [3,'Hiren','vyara',9876567890],
+          [4,'Viral','Surat',7645678909],
+          [5,'Payal','bardoli',7987656799]
+         ]
+    write.writerows(rows)
+    print('Record Inserted successful')
+    #5 records insert using user input
+    l=[]
+    for record in range(5):
+        n=int(input('Enter Student ID:'))
+        name=input('Enter Student Name: ')
+        city=input('Enter City Name: ')
+        contact=int(input('Enter Contact Number:'))
+        store=[n,name,city,contact]
+        l.append(store)
+    write.writerows(l)
+    print('Record Inserted successful')
+
+----->OUTPUT:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Record Inserted successful
+Enter Student ID:6
+Enter Student Name: Arun
+Enter City Name: Mandvi
+Enter Contact Number:9987654567
+Enter Student ID:7
+Enter Student Name: Zaid
+Enter City Name: Kadod
+Enter Contact Number:7456321099
+Enter Student ID:8
+Enter Student Name: Kajal
+Enter City Name: Bardoli
+Enter Contact Number:9976545678
+Enter Student ID:9
+Enter Student Name: Mitul
+Enter City Name: Bardoli
+Enter Contact Number:9977891230
+Enter Student ID:10
+Enter Student Name: Amit
+Enter City Name: Dahod
+Enter Contact Number:9832471087
+Record Inserted successful
+
+
+with open("c://sqlite3//student_csv.csv","r",newline="")as stud:
+    read=csv.reader(stud)
+    for i in read:
+        print(i)
+
+----->OUTPUT:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+['SId', 'SName', 'City', 'Contact']
+['1', 'Nikunj', 'Bardoli', '9086543569']
+['2', 'Jay', 'Surat', '9976645670']
+['3', 'Hiren', 'vyara', '9876567890']
+['4', 'Viral', 'Surat', '7645678909']
+['5', 'Payal', 'bardoli', '7987656799']
+['6', 'Arun', 'Mandvi', '9987654567']
+['7', 'Zaid', 'Kadod', '7456321099']
+['8', 'Kajal', 'Bardoli', '9976545678']
+['9', 'Mitul', 'Bardoli', '9977891230']
+['10', 'Amit', 'Dahod', '9832471087']
+?
+
+
+with open("c:\\sqlite3\\student_csv.csv","r")as stud:
+    r=csv.DictReader(stud)
+    for i in r:
+        print(i)
+print()
+
+----->OUTPUT:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+{'SId': '1', 'SName': 'Nikunj', 'City': 'Bardoli', 'Contact': '9086543569'}
+{'SId': '2', 'SName': 'Jay', 'City': 'Surat', 'Contact': '9976645670'}
+{'SId': '3', 'SName': 'Hiren', 'City': 'vyara', 'Contact': '9876567890'}
+{'SId': '4', 'SName': 'Viral', 'City': 'Surat', 'Contact': '7645678909'}
+{'SId': '5', 'SName': 'Payal', 'City': 'bardoli', 'Contact': '7987656799'}
+{'SId': '6', 'SName': 'Arun', 'City': 'Mandvi', 'Contact': '9987654567'}
+{'SId': '7', 'SName': 'Zaid', 'City': 'Kadod', 'Contact': '7456321099'}
+{'SId': '8', 'SName': 'Kajal', 'City': 'Bardoli', 'Contact': '9976545678'}
+{'SId': '9', 'SName': 'Mitul', 'City': 'Bardoli', 'Contact': '9977891230'}
+{'SId': '10', 'SName': 'Amit', 'City': 'Dahod', 'Contact': '9832471087'}
